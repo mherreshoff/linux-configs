@@ -7,4 +7,9 @@ Add the line:
 source ~/linux-configs/vimrc
 to .vimrc
 
-add ~/linux-configs/bin to $PATH
+
+Add
+
+source $HOME/linux-configs/shellrc.sh
+
+To your bashrc or zshrc
