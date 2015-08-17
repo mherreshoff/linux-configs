@@ -1,0 +1,15 @@
+#!/bin/bash
+# sudo apt-get install xosd-bin
+
+function say() {
+  echo $1
+  echo $1 | aosd_cat --position=1 --fade-full=7000 --fade-in=0 --fade-out=0 -R '#F00' -n 'Trebuchet 288'
+}
+
+sleep 1m
+while true; do
+  say "Stand up."
+  sleep 30m
+  say "Sit down."
+  sleep 30m
+done

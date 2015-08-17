@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# Convenience script for use within vim to snag java import statements from the current directory
+
+grep $1 -rh . | egrep '^import' | sort | uniq
+echo

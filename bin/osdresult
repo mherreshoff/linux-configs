@@ -1,0 +1,35 @@
+#!/bin/bash
+# apt-get install aosd-cat
+
+$*
+result=$?
+if (( $result == 0 ));
+then
+  subject=PASS
+  color='#0F0'
+  tcolor=$(echo -e '\005{= kG}')
+  message=''
+else
+  subject=FAIL
+  color='#F00'
+  tcolor=$(echo -e '\005{= kR}')
+  message=$(oblique)
+  echo $message
+fi
+
+white=$(echo -e '\005{= kW}')
+command=$(echo $* | sed 's/\/usr\/local\/symlinks\///') when=$(date +%H:%M)
+when_string=$(echo -e "\005{= kB}@($when)\005{= kW}")
+echo "$tcolor$command$when_string$white " >> /tmp/last_osdresult_status
+
+# send an IM.
+if [ -n "$IM_OSD_RESULTS" ]; then
+  (echo "$*" | mail -s $subject $USER@mail-xmpp-gateway.appspotmail.com &)
+fi
+
+# pop-up a onscreen message.
+(echo "$*" | aosd_cat --position=4 --fade-full=600 --fade-in=0 --fade-out=0 -R $color -n "Trebuchet 60" &)
+(echo "$message" | aosd_cat --position=6 --fade-full=3000 --fade-in=0 --fade-out=0 -R $color -n "Trebuchet 60" &)
+
+exit $result
+

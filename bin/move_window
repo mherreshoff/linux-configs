@@ -1,0 +1,30 @@
+#!/bin/sh
+# sudo apt-get install wmctrl
+
+nx=$1
+x=$2
+dx=$3
+
+ny=$4
+y=$5
+dy=$6
+
+left_margin=10
+top_margin=25
+right_margin=0
+bottom_margin=0
+
+set -- $(xwininfo -root| awk -F '[ :]+' '/ (Width|Height):/ { print $3 }')
+screen_width=$1
+screen_height=$2
+
+inner_width=$((screen_width-left_margin-right_margin))
+inner_height=$((screen_height-top_margin-bottom_margin))
+
+x_c=$((left_margin+(inner_width*x/nx)))
+y_c=$((top_margin+(inner_height*y/ny)))
+w_c=$((inner_width*dx/nx))
+h_c=$((inner_height*dy/ny))
+
+wmctrl -r :ACTIVE: -e 0,$x_c,$y_c,$w_c,$h_c
+

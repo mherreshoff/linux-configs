@@ -1,0 +1,13 @@
+#!/usr/bin/perl
+use List::MoreUtils qw/ uniq /;
+
+while ( $_ = <> ) {
+  if (/\w+::\w+/) {
+    push(@results, $&)
+  }
+}
+
+@results = uniq (sort @results);
+foreach (@results) {
+  print "using $_;\n";
+}
