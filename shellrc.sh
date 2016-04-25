@@ -1,4 +1,6 @@
 export PATH=$PATH:$HOME/linux-configs/bin
+export PYTHONSTARTUP=$HOME/linux-configs/python_startup.py
+
 
 # Copies text to the X11 clip board:
 copy() {
