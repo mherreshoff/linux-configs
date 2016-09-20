@@ -12,4 +12,4 @@ Add
 
 source $HOME/linux-configs/shellrc.sh
 
-To your bashrc or zshrc
+To your .zshrc

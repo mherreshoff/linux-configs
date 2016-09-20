@@ -17,6 +17,8 @@ nnoremap <Leader>v :vsplit
 nnoremap <Leader>s :split
 nnoremap <Leader>n :set invnumber<CR>
 
+nnoremap <Leader>p "+p
+
 " Window switch commands:
 nnoremap <Leader><TAB> <C-w><C-w>
 nnoremap <Leader>h <C-w>h
