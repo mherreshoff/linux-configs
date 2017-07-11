@@ -10,7 +10,7 @@ to .vimrc
 
 Add
 
-source $HOME/linux-configs/shellrc.sh
+source $HOME/linux-configs/zshrc.sh
 
 To your .zshrc
 
