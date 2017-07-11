@@ -1,7 +1,8 @@
 set expandtab
-set shiftwidth=2
-set softtabstop=2
-
+set shiftwidth=4
+set softtabstop=4
+set smartindent
+set cindent
 set hlsearch
 
 "Light blue comments, easier to read.
